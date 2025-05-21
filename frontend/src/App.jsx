@@ -20,35 +20,26 @@ import DepartmentSection from './components/DepartmentSection';
 import ProtectedRoute from './components/ProtectedRoute';
 import LoginProf from './components/LoginProf';
 import RegisterProf from './components/RegisterProf';
-import StudentProfileForm from './components/StudentProfile';
+
 import YearLevelPanel from './components/YearLevelPanel';
 import YearPanel from './components/YearPanel';
 import YearUpdateForm from './components/YearUpdateForm';
 import SemesterPanel from './components/SemesterPanel';
 import SchoolYearPanel from './components/SchoolYearPanel';
 import SchoolYearActivatorPanel from './components/SchoolYearActivatorPanel';
-import FamilyBackgroundForm from './components/FamilyBackground';
-import EducationalAttainmentForm from './components/EducationalAttainment';
-import RequirementsForm from './components/RequirementsForm';
+
 import AdmissionDashboardPanel from './pages/AdmissionDashboard';
 import SystemDashboardPanel from './pages/SystemDashboard';
 import DepartmentManagement from './pages/DepartmentDashboard';
-import PersonalInfoForm from './components/PersonalInformation';
+
 import StudentNumbering from './components/StudentNumbering';
 import CourseTagging from './components/CourseTagging';
-import UserRegistrationForm from './components/UserRegistrationForm';
 import ChangeGradingPeriod from './components/ChangeYearGradPer';
 import AccountDashboard from './pages/AccountDashboard';
 import ScheduleChecker from './components/ScheduleChecker';
 import SearchStudentCOR from './components/SearchCertificateOfGrades';
 import RoomRegistration from './components/RoomRegistration';
 import ScheduleFilterer from './pages/SchedulePlottingFilter';
-
-import ApplicantPersonalInfoForm from './components/ApplicantPersonalInfo';
-import ApplicantFamilyBackground from './components/ApplicantFamilyBckgrndForm';
-import ApplicantEducationalAttainment from './components/ApplicantEducAttainmnt';
-import ApplicantHealthMedicalRecords from './components/ApplicantHeatlthRecords';
-import ApplicantOtherInformation from './components/ApplicantOtherInfo';
 
 import FacultyDashboard from './pages/FacultyDashboard'; //For Professors & Faculty Members
 import Dashboard from './pages/Dashboard'; // For SuperAdmin & Admin
@@ -122,68 +113,59 @@ import LoginEnrollment from './components/LoginEnrollment';
                 <Route path="/login" element={<LoginEnrollment setIsAuthenticated={setIsAuthenticated}/>}/>
                 <Route path="/dashboard" element={<ProtectedRoute allowedRoles={['registrar']}><Dashboard /></ProtectedRoute>}/>
                 <Route path="/faculty_dashboard" element={<ProtectedRoute allowedRoles={['faculty']}><FacultyDashboard /></ProtectedRoute>}/>
-                <Route path="/applicant_dashboard" element={<ProtectedRoute><ApplicantDashboard/></ProtectedRoute>} />
+                <Route path="/applicant_dashboard" element={<ProtectedRoute allowedRoles={['applicant']}><ApplicantDashboard/></ProtectedRoute>} />
 
-                <Route path="/personal_information" element={<PersonalInfoForm />} />
-                <Route path="/room_registration" element={<ProtectedRoute><RoomRegistration/></ProtectedRoute>}/> 
-                <Route path="/course_management" element={<ProtectedRoute><CourseManagement/></ProtectedRoute>}/>
-                <Route path="/program_tagging" element={<ProtectedRoute><ProgramTagging/></ProtectedRoute>}/>
-                <Route path="/course_panel" element={<ProtectedRoute><CoursePanel/></ProtectedRoute>}/>
-                <Route path="/program_panel" element={<ProtectedRoute><ProgramPanel/></ProtectedRoute>}/>
-                <Route path="/department_section_panel" element={<ProtectedRoute><DepartmentSection/></ProtectedRoute>}/>
-                <Route path="/curriculum_panel" element={<ProtectedRoute><CurriculumPanel/></ProtectedRoute>}/>
-                <Route path="/department_registration" element={<ProtectedRoute><DepartmentRegistration/></ProtectedRoute>}/>
-                <Route path="/section_panel" element={<ProtectedRoute><SectionPanel/></ProtectedRoute>}/>
-                <Route path="/professor_registration" element={<ProtectedRoute><DepartmentProf/></ProtectedRoute>}/>
-                <Route path="/student_profile_form" element={<ProtectedRoute><StudentProfileForm /></ProtectedRoute>} />
-                <Route path="/year_level_panel" element={<ProtectedRoute><YearLevelPanel /></ProtectedRoute>} />
-                <Route path="/year_panel" element={<ProtectedRoute><YearPanel /></ProtectedRoute>} />
-                <Route path="/year_update_panel" element={<ProtectedRoute><YearUpdateForm /></ProtectedRoute>} />
-                <Route path="/semester_panel" element={<ProtectedRoute><SemesterPanel /></ProtectedRoute>} />
-                <Route path="/school_year_panel" element={<ProtectedRoute><SchoolYearPanel /></ProtectedRoute>} />
-                <Route path="/school_year_activator_panel" element={<ProtectedRoute><SchoolYearActivatorPanel /></ProtectedRoute>} />
-                <Route path="/family_background" element={<ProtectedRoute><FamilyBackgroundForm /></ProtectedRoute>} />
-                <Route path="/educational_attainment_form" element={<ProtectedRoute><EducationalAttainmentForm /></ProtectedRoute>} />
-                <Route path="/requirements_form" element={<ProtectedRoute><RequirementsForm /></ProtectedRoute>} />
+                <Route path="/room_registration" element={<ProtectedRoute allowedRoles={['registrar']}><RoomRegistration/></ProtectedRoute>}/> 
+                <Route path="/course_management" element={<ProtectedRoute allowedRoles={['registrar']}><CourseManagement/></ProtectedRoute>}/>
+                <Route path="/program_tagging" element={<ProtectedRoute allowedRoles={['registrar']}><ProgramTagging/></ProtectedRoute>}/>
+                <Route path="/course_panel" element={<ProtectedRoute allowedRoles={['registrar']}><CoursePanel/></ProtectedRoute>}/>
+                <Route path="/program_panel" element={<ProtectedRoute allowedRoles={['registrar']}><ProgramPanel/></ProtectedRoute>}/>
+                <Route path="/department_section_panel" element={<ProtectedRoute allowedRoles={['registrar']}><DepartmentSection/></ProtectedRoute>}/>
+                <Route path="/curriculum_panel" element={<ProtectedRoute allowedRoles={['registrar']}><CurriculumPanel/></ProtectedRoute>}/>
+                <Route path="/department_registration" element={<ProtectedRoute allowedRoles={['registrar']}><DepartmentRegistration/></ProtectedRoute>}/>
+                <Route path="/section_panel" element={<ProtectedRoute allowedRoles={['registrar']}><SectionPanel/></ProtectedRoute>}/>
+                <Route path="/professor_registration" element={<ProtectedRoute allowedRoles={['registrar']}><DepartmentProf/></ProtectedRoute>}/>
+                <Route path="/year_level_panel" element={<ProtectedRoute allowedRoles={['registrar']}><YearLevelPanel /></ProtectedRoute>} />
+                <Route path="/year_panel" element={<ProtectedRoute allowedRoles={['registrar']}><YearPanel /></ProtectedRoute>} />
+                <Route path="/year_update_panel" element={<ProtectedRoute allowedRoles={['registrar']}><YearUpdateForm /></ProtectedRoute>} />
+                <Route path="/semester_panel" element={<ProtectedRoute allowedRoles={['registrar']}><SemesterPanel /></ProtectedRoute>} />
+                <Route path="/school_year_panel" element={<ProtectedRoute allowedRoles={['registrar']}><SchoolYearPanel /></ProtectedRoute>} />
+                <Route path="/school_year_activator_panel" element={<ProtectedRoute allowedRoles={['registrar']}><SchoolYearActivatorPanel /></ProtectedRoute>} />
+
                 <Route path="/requirements_uploader" element={<ProtectedRoute allowedRoles={['applicant']}><RequirementUploader /></ProtectedRoute>} />
-                <Route path="/admission_dashboard" element={<ProtectedRoute><AdmissionDashboardPanel /></ProtectedRoute>} />
-                <Route path="/department_dashboard" element={<ProtectedRoute><DepartmentManagement /></ProtectedRoute>} />
-                <Route path="/system_dashboard" element={<ProtectedRoute><SystemDashboardPanel /></ProtectedRoute>} />
-                <Route path="/account_dashboard" element={<ProtectedRoute><AccountDashboard /></ProtectedRoute>} />
-                <Route path="/student_numbering" element={<ProtectedRoute><StudentNumbering /></ProtectedRoute>} />
-                <Route path="/course_tagging" element={<ProtectedRoute><CourseTagging /></ProtectedRoute>} />
-                <Route path="/user_register" element={<ProtectedRoute><UserRegistrationForm /></ProtectedRoute>} />
-                <Route path="/schedule_checker/:dprtmnt_id" element={<ProtectedRoute><ScheduleChecker /></ProtectedRoute>} />
-                <Route path="/change_grade_period" element={<ProtectedRoute><ChangeGradingPeriod /></ProtectedRoute>} />
-                <Route path="/department_room" element={<ProtectedRoute><DepartmentRoom /></ProtectedRoute>} />
-                <Route path="/search_cor" element={<ProtectedRoute><SearchStudentCOR /></ProtectedRoute>} />
-                <Route path="/select_college" element={<ProtectedRoute><ScheduleFilterer /></ProtectedRoute>} />
+                <Route path="/admission_dashboard" element={<ProtectedRoute allowedRoles={['registrar']}><AdmissionDashboardPanel /></ProtectedRoute>} />
+                <Route path="/department_dashboard" element={<ProtectedRoute allowedRoles={['registrar']}><DepartmentManagement /></ProtectedRoute>} />
+                <Route path="/system_dashboard" element={<ProtectedRoute allowedRoles={['registrar']}><SystemDashboardPanel /></ProtectedRoute>} />
+                <Route path="/account_dashboard" element={<ProtectedRoute allowedRoles={['registrar']}><AccountDashboard /></ProtectedRoute>} />
+                <Route path="/student_numbering" element={<ProtectedRoute allowedRoles={['registrar']}><StudentNumbering /></ProtectedRoute>} />
+                <Route path="/course_tagging" element={<ProtectedRoute allowedRoles={['registrar']}><CourseTagging /></ProtectedRoute>} />
+                
+                <Route path="/schedule_checker/:dprtmnt_id" element={<ProtectedRoute allowedRoles={['registrar']}><ScheduleChecker /></ProtectedRoute>} />
+                <Route path="/change_grade_period" element={<ProtectedRoute  allowedRoles={['registrar']}><ChangeGradingPeriod /></ProtectedRoute>} />
+                <Route path="/department_room" element={<ProtectedRoute  allowedRoles={['registrar']}><DepartmentRoom /></ProtectedRoute>} />
+                <Route path="/search_cor" element={<ProtectedRoute  allowedRoles={['registrar']}><SearchStudentCOR /></ProtectedRoute>} />
+                <Route path="/select_college" element={<ProtectedRoute  allowedRoles={['registrar']}><ScheduleFilterer /></ProtectedRoute>} />
 
-                <Route path="/applicant_personal_information" element={<ProtectedRoute allowedRoles={['applicant']}><ApplicantPersonalInfoForm /></ProtectedRoute>} />
-                <Route path="/applicant_family_background" element={<ProtectedRoute allowedRoles={['applicant']}><ApplicantFamilyBackground/></ProtectedRoute>} />
-                <Route path="/applicant_educational_attainment" element={<ProtectedRoute allowedRoles={['applicant']}><ApplicantEducationalAttainment /></ProtectedRoute>} />
-                <Route path="/applicant_health_medical_records" element={<ProtectedRoute allowedRoles={['applicant']}><ApplicantHealthMedicalRecords/></ProtectedRoute>} />
-                <Route path="/applicant_other_information" element={<ProtectedRoute allowedRoles={['applicant']}><ApplicantOtherInformation/></ProtectedRoute>} />
-
-                <Route path="/grading_sheet" element={<ProtectedRoute><GradingSheet /></ProtectedRoute>} />
-                <Route path="/faculty_workload" element={<ProtectedRoute><FacultyWorkload /></ProtectedRoute>} />
-                <Route path="/faculty_masterlist" element={<ProtectedRoute><FacultyMasterList /></ProtectedRoute>} />
-                <Route path="/subject_masterlist/:subject_id/:department_section_id/:school_year_id" element={<ProtectedRoute><FacultyStudentClassList /></ProtectedRoute>} />
-                <Route path="/faculty_schedule" element={<ProtectedRoute><FacultySchedule /></ProtectedRoute>} />
-                <Route path="/dashboard1" element={<ProtectedRoute allowedRoles={'applicant'}><Dashboard1 /></ProtectedRoute>} />
+                <Route path="/grading_sheet" element={<ProtectedRoute  allowedRoles={['faculty']}><GradingSheet /></ProtectedRoute>} />
+                <Route path="/faculty_workload" element={<ProtectedRoute  allowedRoles={['faculty']}><FacultyWorkload /></ProtectedRoute>} />
+                <Route path="/faculty_masterlist" element={<ProtectedRoute  allowedRoles={['faculty']}><FacultyMasterList /></ProtectedRoute>} />
+                <Route path="/subject_masterlist/:subject_id/:department_section_id/:school_year_id" element={<ProtectedRoute  allowedRoles={['faculty']}><FacultyStudentClassList /></ProtectedRoute>} />
+                <Route path="/faculty_schedule" element={<ProtectedRoute  allowedRoles={['faculty']}><FacultySchedule /></ProtectedRoute>} />
+                
                 <Route path="/student_dashboard" element={<ProtectedRoute allowedRoles={'student'}><StudentDashboard /></ProtectedRoute>} />
                 <Route path="/unauthorized" element={<Unauthorized />} />
 
-                <Route path="/dashboard2" element={<Dashboard2 />} />
-                <Route path="/dashboard3" element={<Dashboard3 />} />
-                <Route path="/dashboard4" element={<Dashboard4 />} />
-                <Route path="/dashboard5" element={<Dashboard5 />} />
+                <Route path="/dashboard1" element={<ProtectedRoute allowedRoles={'applicant'}><Dashboard1 /></ProtectedRoute>} />
+                <Route path="/dashboard2" element={<ProtectedRoute allowedRoles={'applicant'}><Dashboard2 /></ProtectedRoute>} />
+                <Route path="/dashboard3" element={<ProtectedRoute allowedRoles={'applicant'}><Dashboard3 /></ProtectedRoute>} />
+                <Route path="/dashboard4" element={<ProtectedRoute allowedRoles={'applicant'}><Dashboard4 /></ProtectedRoute>} />
+                <Route path="/dashboard5" element={<ProtectedRoute allowedRoles={'applicant'}><Dashboard5 /></ProtectedRoute>} />
 
-                 <Route path="/personal_data_form" element={<ProtectedRoute><PersonalDataForm /></ProtectedRoute>} />
-                <Route path="/ecat_application_form" element={<ProtectedRoute><ECATApplicationForm /></ProtectedRoute>} />
-                <Route path="/admission_form_process" element={<ProtectedRoute><AdmissionFormProcess /></ProtectedRoute>} />
-                <Route path="/admission_services" element={<ProtectedRoute><AdmissionServices /></ProtectedRoute>} />
-                <Route path="/office_of_the_registrar" element={<ProtectedRoute><OfficeOfTheRegistrar /></ProtectedRoute>} />
+                 <Route path="/personal_data_form" element={<ProtectedRoute allowedRoles={'applicant'}><PersonalDataForm /></ProtectedRoute>} />
+                <Route path="/ecat_application_form" element={<ProtectedRoute allowedRoles={'applicant'}><ECATApplicationForm /></ProtectedRoute>} />
+                <Route path="/admission_form_process" element={<ProtectedRoute allowedRoles={'applicant'}><AdmissionFormProcess /></ProtectedRoute>} />
+                <Route path="/admission_services" element={<ProtectedRoute allowedRoles={'applicant'}><AdmissionServices /></ProtectedRoute>} />
+                <Route path="/office_of_the_registrar" element={<ProtectedRoute allowedRoles={'applicant'}><OfficeOfTheRegistrar /></ProtectedRoute>} />
               </Routes>
             </main>
           </div>

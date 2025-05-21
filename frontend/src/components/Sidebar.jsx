@@ -106,7 +106,7 @@ const SideBar = ({ setIsAuthenticated }) => {
         {role === 'applicant' && (
           <>
           <Link to="/dashboard1">
-          <li className={`w-full flex items-center border border-maroon-500 px-2 rounded button-hover ${location.pathname === "/applicant_personal_information" ? "bg-maroon-500 text-white" : ""}`} >
+          <li className={`w-full flex items-center border border-maroon-500 px-2 rounded button-hover ${location.pathname === "/dashboard1" ? "bg-maroon-500 text-white" : ""}`} >
             <Dashboard/>
             <span className='pl-4 p-2 px-0 pointer-events-none'>Applicant Form</span>
           </li>
@@ -164,6 +164,49 @@ const SideBar = ({ setIsAuthenticated }) => {
               <span className='pl-4 p-2 px-0 pointer-events-none'>Dashboard</span>
             </li>
           </Link>
+          <Link to="/grading_sheet">
+          <li className={`w-full flex items-center border border-maroon-500 px-2 rounded m-2 mx-0 button-hover ${location.pathname === "/grading_sheet" ? "bg-maroon-500 text-white" : ""}`}>
+            <Business />
+            <span className='pl-4 p-2 px-0 pointer-events-none'>Student Profile</span>
+          </li>
+          </Link>
+          <Link to="/grading_sheet">
+          <li className={`w-full flex items-center border border-maroon-500 px-2 rounded m-2 mx-0 button-hover ${location.pathname === "/grading_sheet" ? "bg-maroon-500 text-white" : ""}`}>
+            <Business />
+            <span className='pl-4 p-2 px-0 pointer-events-none'>Section Offering</span>
+          </li>
+          </Link>
+          <Link to="/grading_sheet">
+          <li className={`w-full flex items-center border border-maroon-500 px-2 rounded m-2 mx-0 button-hover ${location.pathname === "/grading_sheet" ? "bg-maroon-500 text-white" : ""}`}>
+            <Business />
+            <span className='pl-4 p-2 px-0 pointer-events-none'>Enrollment</span>
+          </li>
+          </Link>
+          <Link to="/grading_sheet">
+          <li className={`w-full flex items-center border border-maroon-500 px-2 rounded m-2 mx-0 button-hover ${location.pathname === "/grading_sheet" ? "bg-maroon-500 text-white" : ""}`}>
+            <Business />
+            <span className='pl-4 p-2 px-0 pointer-events-none'>Schedule</span>
+          </li>
+          </Link>
+          <Link to="/grading_sheet">
+          <li className={`w-full flex items-center border border-maroon-500 px-2 rounded m-2 mx-0 button-hover ${location.pathname === "/grading_sheet" ? "bg-maroon-500 text-white" : ""}`}>
+            <Business />
+            <span className='pl-4 p-2 px-0 pointer-events-none'>Grades</span>
+          </li>
+          </Link>
+          <Link to="/grading_sheet">
+          <li className={`w-full flex items-center border border-maroon-500 px-2 rounded m-2 mx-0 button-hover ${location.pathname === "/grading_sheet" ? "bg-maroon-500 text-white" : ""}`}>
+            <Business />
+            <span className='pl-4 p-2 px-0 pointer-events-none'>Faculty Evaluation</span>
+          </li>
+          </Link>
+          <Link to="/grading_sheet">
+          <li className={`w-full flex items-center border border-maroon-500 px-2 rounded m-2 mx-0 button-hover ${location.pathname === "/grading_sheet" ? "bg-maroon-500 text-white" : ""}`}>
+            <Business />
+            <span className='pl-4 p-2 px-0 pointer-events-none'>Account Management</span>
+          </li>
+          </Link>
+          
           </>
         )}
         <li className='w-full flex items-center border border-maroon-500 px-2 rounded m-2 mx-0 cursor-pointer button-hover' onClick={Logout}>

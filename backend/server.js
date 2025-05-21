@@ -1998,70 +1998,67 @@ app.get("/get_enrolled_students/:subject_id/:department_section_id/:active_schoo
   }
 
   const filterStudents = `
-  SELECT 
-    person_table.*, 
-    enrolled_subject.*, 
-    time_table.*, 
-    section_table.description AS section_description,
-    program_table.program_description,
-    program_table.program_code,
-    year_level_table.year_level_description,
-    semester_table.semester_description,
-    course_table.course_code,
-    course_table.course_description,
-    room_day_table.description AS day_description,
-    room_table.room_description
-  FROM time_table
-  INNER JOIN enrolled_subject
-    ON time_table.course_id = enrolled_subject.course_id
-    AND time_table.department_section_id = enrolled_subject.department_section_id
-    AND time_table.school_year_id = enrolled_subject.active_school_year_id
-  INNER JOIN student_numbering_table
-    ON enrolled_subject.student_number = student_numbering_table.student_number
-  INNER JOIN person_table
-    ON student_numbering_table.person_id = person_table.person_id
-  INNER JOIN dprtmnt_section_table
-    ON time_table.department_section_id = dprtmnt_section_table.id
-  INNER JOIN section_table
-    ON dprtmnt_section_table.section_id = section_table.id
-  INNER JOIN curriculum_table
-    ON dprtmnt_section_table.curriculum_id = curriculum_table.curriculum_id
-  INNER JOIN program_table
-    ON curriculum_table.program_id = program_table.program_id
-  INNER JOIN program_tagging_table
-    ON program_tagging_table.course_id = time_table.course_id
-    AND program_tagging_table.curriculum_id = dprtmnt_section_table.curriculum_id
-  INNER JOIN year_level_table
-    ON program_tagging_table.year_level_id = year_level_table.year_level_id
-  INNER JOIN semester_table
-    ON program_tagging_table.semester_id = semester_table.semester_id
-  INNER JOIN course_table
-    ON program_tagging_table.course_id = course_table.course_id
-  INNER JOIN active_school_year_table
-    ON time_table.school_year_id = active_school_year_table.id
-  INNER JOIN room_day_table
-    ON time_table.room_day = room_day_table.id
-  INNER JOIN dprtmnt_room_table
-    ON time_table.department_room_id = dprtmnt_room_table.dprtmnt_room_id
-  INNER JOIN room_table
-    ON dprtmnt_room_table.room_id = room_table.room_id
-  WHERE time_table.course_id = ? 
-    AND time_table.department_section_id = ? 
-    AND time_table.school_year_id = ?
-    AND active_school_year_table.astatus = 1;
-    
+    SELECT 
+      person_table.*, 
+      enrolled_subject.*, 
+      time_table.*, 
+      section_table.description AS section_description,
+      program_table.program_description,
+      program_table.program_code,
+      year_level_table.year_level_description,
+      semester_table.semester_description,
+      course_table.course_code,
+      course_table.course_description,
+      room_day_table.description AS day_description,
+      room_table.room_description
+    FROM time_table
+    INNER JOIN enrolled_subject
+      ON time_table.course_id = enrolled_subject.course_id
+      AND time_table.department_section_id = enrolled_subject.department_section_id
+      AND time_table.school_year_id = enrolled_subject.active_school_year_id
+    INNER JOIN student_numbering_table
+      ON enrolled_subject.student_number = student_numbering_table.student_number
+    INNER JOIN person_table
+      ON student_numbering_table.person_id = person_table.person_id
+    INNER JOIN dprtmnt_section_table
+      ON time_table.department_section_id = dprtmnt_section_table.id
+    INNER JOIN section_table
+      ON dprtmnt_section_table.section_id = section_table.id
+    INNER JOIN curriculum_table
+      ON dprtmnt_section_table.curriculum_id = curriculum_table.curriculum_id
+    INNER JOIN program_table
+      ON curriculum_table.program_id = program_table.program_id
+    INNER JOIN program_tagging_table
+      ON program_tagging_table.course_id = time_table.course_id
+      AND program_tagging_table.curriculum_id = dprtmnt_section_table.curriculum_id
+    INNER JOIN year_level_table
+      ON program_tagging_table.year_level_id = year_level_table.year_level_id
+    INNER JOIN semester_table
+      ON program_tagging_table.semester_id = semester_table.semester_id
+    INNER JOIN course_table
+      ON program_tagging_table.course_id = course_table.course_id
+    INNER JOIN active_school_year_table
+      ON time_table.school_year_id = active_school_year_table.id
+    INNER JOIN room_day_table
+      ON time_table.room_day = room_day_table.id
+    INNER JOIN dprtmnt_room_table
+      ON time_table.department_room_id = dprtmnt_room_table.dprtmnt_room_id
+    INNER JOIN room_table
+      ON dprtmnt_room_table.room_id = room_table.room_id
+    WHERE time_table.course_id = ? 
+      AND time_table.department_section_id = ? 
+      AND time_table.school_year_id = ?
+      AND active_school_year_table.astatus = 1;
 `;
 
   try {
     // Execute the query using promise-based `execute` method
     const [result] = await db3.execute(filterStudents, [subject_id, department_section_id, active_school_year_id]);
 
-    // Check if no students were found
     if (result.length === 0) {
       return res.status(404).json({ message: "No students found for this subject-section combination." });
     }
 
-    // Send the response with the result
     res.json({
       totalStudents: result.length,
       students: result,
@@ -3006,7 +3003,6 @@ app.get("/get_prof_data/:id", async (req, res) => {
 
   try {
     const [rows] = await db3.query(query, [id]);
-    console.log(rows);
     res.json(rows);
   } catch (error) {
     console.error(error);

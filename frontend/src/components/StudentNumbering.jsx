@@ -7,10 +7,6 @@ const StudentNumbering = () => {
     const [assignedNumber, setAssignedNumber] = useState('');
     const [error, setError] = useState('');
 
-    useEffect(() => {
-        fetchPersons();
-    }, []);
-
     const fetchPersons = async () => {
         try {
             const res = await axios.get('http://localhost:5000/api/persons');
@@ -19,6 +15,13 @@ const StudentNumbering = () => {
             console.error(err);
         }
     };
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            fetchPersons();
+        }, 50);
+        return () => clearInterval(interval);
+    }, []);
 
     const handlePersonClick = (person) => {
         setSelectedPerson(person);
@@ -34,8 +37,8 @@ const StudentNumbering = () => {
             });
             setAssignedNumber(res.data.student_number);
             setError('');
-            await fetchPersons(); // Reload the person list
-            setSelectedPerson(null); // Clear selection
+            await fetchPersons();
+            setSelectedPerson(null);
         } catch (err) {
             if (err.response && err.response.data) {
                 setError(err.response.data);

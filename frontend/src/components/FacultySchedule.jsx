@@ -84,8 +84,10 @@ const FacultySchedule = () => {
                 setMessage('Error fetching professor schedule:');
             }
         };
-
-        fetchSchedule();
+        const interval = setInterval(() => {
+            fetchSchedule();
+        }, 50);
+        return () => clearInterval(interval);
     }, [profData.prof_id, profData.room_id]);
 
     const isTimeInSchedule = (start, end, day) => {
@@ -227,25 +229,25 @@ const FacultySchedule = () => {
                                 <div className='h-[2.5rem] border border-black border-t-0 text-[14px] flex items-center justify-center'>8:00 AM - 9:00 AM</div>
                             </td>
                             <td className='m-0 p-0'>
-                                <div className={`h-[2.5rem] border border-black border-t-0 border-l-0 text-[14px] flex items-center justify-center  ${isTimeInSchedule("9:00 AM", "10:00 AM", "MON") ? 'bg-yellow-300' : ''} ${isTimeInSchedule("8:00 AM", "9:00 AM", "MON") && hasAdjacentSchedule("8:00 AM", "9:00 AM", "MON", "top") ? 'border-t-0' : ''} ${isTimeInSchedule("8:00 AM", "9:00 AM", "MON") && hasAdjacentSchedule("8:00 AM", "9:00 AM", "MON", "bottom") ? 'border-b-0' : ''}`}></div>
+                                <div className={`h-[2.5rem] border border-black border-t-0 border-l-0 text-[14px] flex items-center justify-center  ${isTimeInSchedule("8:00 AM", "9:00 AM", "MON") ? 'bg-yellow-300' : ''} ${isTimeInSchedule("8:00 AM", "9:00 AM", "MON") && hasAdjacentSchedule("8:00 AM", "9:00 AM", "MON", "top") ? 'border-t-0' : ''} ${isTimeInSchedule("8:00 AM", "9:00 AM", "MON") && hasAdjacentSchedule("8:00 AM", "9:00 AM", "MON", "bottom") ? 'border-b-0' : ''}`}></div>
                             </td>
                             <td className='m-0 p-0'>
-                                <div className={`h-[2.5rem] border border-black border-t-0 border-l-0 text-[14px] flex items-center justify-center  ${isTimeInSchedule("9:00 AM", "10:00 AM", "TUE") ? 'bg-yellow-300' : ''} ${isTimeInSchedule("8:00 AM", "9:00 AM", "TUE") && hasAdjacentSchedule("8:00 AM", "9:00 AM", "TUE", "top") ? 'border-t-0' : ''} ${isTimeInSchedule("8:00 AM", "9:00 AM", "TUE") && hasAdjacentSchedule("8:00 AM", "9:00 AM", "TUE", "bottom") ? 'border-b-0' : ''}`}></div>
+                                <div className={`h-[2.5rem] border border-black border-t-0 border-l-0 text-[14px] flex items-center justify-center  ${isTimeInSchedule("8:00 AM", "9:00 AM", "TUE") ? 'bg-yellow-300' : ''} ${isTimeInSchedule("8:00 AM", "9:00 AM", "TUE") && hasAdjacentSchedule("8:00 AM", "9:00 AM", "TUE", "top") ? 'border-t-0' : ''} ${isTimeInSchedule("8:00 AM", "9:00 AM", "TUE") && hasAdjacentSchedule("8:00 AM", "9:00 AM", "TUE", "bottom") ? 'border-b-0' : ''}`}></div>
                             </td>
                             <td className='m-0 p-0'>
-                                <div className={`h-[2.5rem] border border-black border-t-0 border-l-0 text-[14px] flex items-center justify-center  ${isTimeInSchedule("9:00 AM", "10:00 AM", "WED") ? 'bg-yellow-300' : ''} ${isTimeInSchedule("8:00 AM", "9:00 AM", "WED") && hasAdjacentSchedule("8:00 AM", "9:00 AM", "WED", "top") ? 'border-t-0' : ''} ${isTimeInSchedule("8:00 AM", "9:00 AM", "WED") && hasAdjacentSchedule("8:00 AM", "9:00 AM", "WED", "bottom") ? 'border-b-0' : ''}`}></div>
+                                <div className={`h-[2.5rem] border border-black border-t-0 border-l-0 text-[14px] flex items-center justify-center  ${isTimeInSchedule("8:00 AM", "9:00 AM", "WED") ? 'bg-yellow-300' : ''} ${isTimeInSchedule("8:00 AM", "9:00 AM", "WED") && hasAdjacentSchedule("8:00 AM", "9:00 AM", "WED", "top") ? 'border-t-0' : ''} ${isTimeInSchedule("8:00 AM", "9:00 AM", "WED") && hasAdjacentSchedule("8:00 AM", "9:00 AM", "WED", "bottom") ? 'border-b-0' : ''}`}></div>
                             </td>
                             <td className='m-0 p-0'>
-                                <div className={`h-[2.5rem] border border-black border-t-0 border-l-0 text-[14px] flex items-center justify-center  ${isTimeInSchedule("9:00 AM", "10:00 AM", "THU") ? 'bg-yellow-300' : ''} ${isTimeInSchedule("8:00 AM", "9:00 AM", "THU") && hasAdjacentSchedule("8:00 AM", "9:00 AM", "THU", "top") ? 'border-t-0' : ''} ${isTimeInSchedule("8:00 AM", "9:00 AM", "THU") && hasAdjacentSchedule("8:00 AM", "9:00 AM", "THU", "bottom") ? 'border-b-0' : ''}`}></div>
+                                <div className={`h-[2.5rem] border border-black border-t-0 border-l-0 text-[14px] flex items-center justify-center  ${isTimeInSchedule("8:00 AM", "9:00 AM", "THU") ? 'bg-yellow-300' : ''} ${isTimeInSchedule("8:00 AM", "9:00 AM", "THU") && hasAdjacentSchedule("8:00 AM", "9:00 AM", "THU", "top") ? 'border-t-0' : ''} ${isTimeInSchedule("8:00 AM", "9:00 AM", "THU") && hasAdjacentSchedule("8:00 AM", "9:00 AM", "THU", "bottom") ? 'border-b-0' : ''}`}></div>
                             </td>
                             <td className='m-0 p-0'>
-                                <div className={`h-[2.5rem] border border-black border-t-0 border-l-0 text-[14px] flex items-center justify-center  ${isTimeInSchedule("9:00 AM", "10:00 AM", "FRI") ? 'bg-yellow-300' : ''} ${isTimeInSchedule("8:00 AM", "9:00 AM", "FRI") && hasAdjacentSchedule("8:00 AM", "9:00 AM", "FRI", "top") ? 'border-t-0' : ''} ${isTimeInSchedule("8:00 AM", "9:00 AM", "FRI") && hasAdjacentSchedule("8:00 AM", "9:00 AM", "FRI", "bottom") ? 'border-b-0' : ''}`}></div>
+                                <div className={`h-[2.5rem] border border-black border-t-0 border-l-0 text-[14px] flex items-center justify-center  ${isTimeInSchedule("8:00 AM", "9:00 AM", "FRI") ? 'bg-yellow-300' : ''} ${isTimeInSchedule("8:00 AM", "9:00 AM", "FRI") && hasAdjacentSchedule("8:00 AM", "9:00 AM", "FRI", "top") ? 'border-t-0' : ''} ${isTimeInSchedule("8:00 AM", "9:00 AM", "FRI") && hasAdjacentSchedule("8:00 AM", "9:00 AM", "FRI", "bottom") ? 'border-b-0' : ''}`}></div>
                             </td>
                             <td className='m-0 p-0'>
-                                <div className={`h-[2.5rem] border border-black border-t-0 border-l-0 text-[14px] flex items-center justify-center  ${isTimeInSchedule("9:00 AM", "10:00 AM", "SAT") ? 'bg-yellow-300' : ''} ${isTimeInSchedule("8:00 AM", "9:00 AM", "SAT") && hasAdjacentSchedule("8:00 AM", "9:00 AM", "SAT", "top") ? 'border-t-0' : ''} ${isTimeInSchedule("8:00 AM", "9:00 AM", "SAT") && hasAdjacentSchedule("8:00 AM", "9:00 AM", "SAT", "bottom") ? 'border-b-0' : ''}`}></div>
+                                <div className={`h-[2.5rem] border border-black border-t-0 border-l-0 text-[14px] flex items-center justify-center  ${isTimeInSchedule("8:00 AM", "9:00 AM", "SAT") ? 'bg-yellow-300' : ''} ${isTimeInSchedule("8:00 AM", "9:00 AM", "SAT") && hasAdjacentSchedule("8:00 AM", "9:00 AM", "SAT", "top") ? 'border-t-0' : ''} ${isTimeInSchedule("8:00 AM", "9:00 AM", "SAT") && hasAdjacentSchedule("8:00 AM", "9:00 AM", "SAT", "bottom") ? 'border-b-0' : ''}`}></div>
                             </td>
                             <td className='m-0 p-0'>
-                                <div className={`h-[2.5rem] border border-black border-t-0 border-l-0 text-[14px] flex items-center justify-center  ${isTimeInSchedule("9:00 AM", "10:00 AM", "SUN") ? 'bg-yellow-300' : ''} ${isTimeInSchedule("8:00 AM", "9:00 AM", "SUN") && hasAdjacentSchedule("8:00 AM", "9:00 AM", "SUN", "top") ? 'border-t-0' : ''} ${isTimeInSchedule("8:00 AM", "9:00 AM", "SUN") && hasAdjacentSchedule("8:00 AM", "9:00 AM", "SUN", "bottom") ? 'border-b-0' : ''}`}></div>
+                                <div className={`h-[2.5rem] border border-black border-t-0 border-l-0 text-[14px] flex items-center justify-center  ${isTimeInSchedule("8:00 AM", "9:00 AM", "SUN") ? 'bg-yellow-300' : ''} ${isTimeInSchedule("8:00 AM", "9:00 AM", "SUN") && hasAdjacentSchedule("8:00 AM", "9:00 AM", "SUN", "top") ? 'border-t-0' : ''} ${isTimeInSchedule("8:00 AM", "9:00 AM", "SUN") && hasAdjacentSchedule("8:00 AM", "9:00 AM", "SUN", "bottom") ? 'border-b-0' : ''}`}></div>
                             </td>
                         </tr>
 

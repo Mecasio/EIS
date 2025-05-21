@@ -26,7 +26,7 @@ const ProtectedRoute = ({ children, allowedRoles = [] }) => {
     }
   }, [allowedRoles]);
 
-  if (isAuthorized === null) return null; // optional: add a loading spinner
+  if (isAuthorized === null) return null;
 
   if (isAuthorized === true) {
     return children;

@@ -75,6 +75,7 @@ const GradingSheet = () => {
       };
 
       setPerson(profInfo);
+      setLoading(false);
     } catch (err) {
       setLoading(false);
       setMessage("Error Fetching Professor Personal Data");
@@ -87,19 +88,15 @@ const GradingSheet = () => {
       const data = await response.json();
       
       if (response.ok) {
-        if (data.students.length === 0) {
-          setStudents([]); // Important
-          setMessage("There are no currently enrolled student in this subject");
-        } else {
-          const studentsWithSubject = data.students.map((student) => ({
-            ...student,
-            subject_id,
-            department_section_id,
-          }));
+        const studentsWithSubject = data.students.map((student) => ({
+          ...student,
+          subject_id,
+          department_section_id,
+        }));
 
-          setStudents(studentsWithSubject);
-          setMessage("");
-        }
+        setStudents(studentsWithSubject);
+        setMessage("");
+
       } else {
         setLoading(false);
         setMessage("There are no currently enrolled student in this subject");
@@ -118,7 +115,7 @@ const GradingSheet = () => {
       const finalGrade = finalGradeCalc(updatedStudents[index].midterm, updatedStudents[index].finals);
       updatedStudents[index].final_grade = finalGrade;
 
-      if (finalGrade == 0) {
+      if (finalGrade === 0) {
         updatedStudents[index].en_remarks = 0;
       } else if (finalGrade >= 75) {
         updatedStudents[index].en_remarks = 1;
@@ -158,15 +155,16 @@ const GradingSheet = () => {
       }
     } catch (error) {
       setLoading(false);
+      setMessage("Failed to save grades");
     }
   }
 
   const remarkConversion = (student) => {
-    if (student.en_remarks == 1) {
+    if (student.en_remarks === 1) {
       return "PASSED";
-    } else if (student.en_remarks == 2) {
+    } else if (student.en_remarks === 2) {
       return "FAILED";
-    } else if (student.en_remarks == 3) {
+    } else if (student.en_remarks === 3) {
       return "INCOMPLETE";
     } else {
       return "DROP";
@@ -178,7 +176,7 @@ const GradingSheet = () => {
     const finalScore = parseFloat(finals);
   
     if (isNaN(midtermScore) || isNaN(finalScore)) {
-      return "Invalid input";
+      return "0";
     }
 
     const finalGrade = (midtermScore * 0.5) + (finalScore * 0.5);
@@ -266,13 +264,6 @@ const GradingSheet = () => {
                 <div><SortingIcon /></div>
               </div>
             </TableCell>
-
-            <TableCell style={{borderColor: 'gray', borderStyle: 'solid', borderWidth: '1px 1px 1px 0px', padding: '0rem 1rem'}}>
-              <div style={{display: 'flex', alignItems: 'center'}}>
-                <p style={{width: '100%'}}>Action</p>
-                <div><SortingIcon /></div>
-              </div>
-            </TableCell>
           </TableRow>
         </TableHead>
 
@@ -315,7 +306,7 @@ const GradingSheet = () => {
                   <input type="text" value={finalGradeCalc(student.midterm, student.finals)} readOnly style={{border: 'none', textAlign: 'center', background: 'none', outline: 'none', height: '100%', fontFamily: 'Poppins'}}/>
                   </TableCell>
                   
-                  <TableCell style={{padding: '0.5rem', width: '10%', borderColor: 'gray', borderWidth: '1px 0px 1px 1px', borderStyle: 'solid'}}>
+                  <TableCell style={{padding: '0.5rem', width: '10%', borderColor: 'gray', borderWidth: '1px 1px 1px 1px', borderStyle: 'solid'}}>
                     <select name="en_remarks" id="" value={students.en_remarks} className="w-full outline-none" onChange={(e) => handleChanges(index, 'en_remarks', parseInt(e.target.value))}>
                       <option value="">{remarkConversion(student)}</option>
                       <option value="0">DROP</option>
@@ -324,16 +315,13 @@ const GradingSheet = () => {
                       <option value="3">INCOMPLETE</option>
                     </select>
                   </TableCell>
-                
-                  <TableCell style={{padding: '0.5rem', width: '10%', borderColor: 'gray', borderWidth: '1px 1px 1px 1px', borderStyle: 'solid'}}>
-                    <button onClick={() => addStudentInfo(student)}>Save</button>
-                  </TableCell>
               
               </TableRow>
             ))
-          )}
+          )}        
         </TableBody>
       </Table>
+      <button className="bg-maroon-500 text-white py-[0.5rem] px-[4rem] rounded absolute right-[2%] bottom-[6%]" onClick={() => {students.forEach(student => addStudentInfo(student))}}>Save</button>
     </div>
   );
 };
