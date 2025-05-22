@@ -175,11 +175,11 @@ const ECATApplicationForm = () => {
 
                           {/* CENTER - School Info */}
                           <td colSpan={15} style={{ textAlign: "center", fontFamily: "Arial", fontSize: "10px", lineHeight: "1.5", }}>
-                            <div style={{ fontSize: "12px", letterSpacing: "1px" }}>Republic of the Philippines</div>
-                            <div style={{ fontSize: "12px", letterSpacing: "1px" }}><b>Eulogio "Amang" Rodriguez</b></div>
-                            <div style={{ fontSize: "12px", letterSpacing: "1px" }}><b>Institute of Science and Technology</b></div>
-                            <div style={{ fontSize: "12px", letterSpacing: "1px" }}>Nagtahan, Sampaloc, Manila 1008</div>
-                            <div style={{fontSize: "10px"}}><b>STUDENT ADMISSION REGISTRATION AND RECORDS MANAGEMENT SERVICES</b></div>
+                            <div style={{ fontSize: "12px", letterSpacing: "1px",  fontFamily: "Arial", }}>Republic of the Philippines</div>
+                            <div style={{ fontSize: "12px", letterSpacing: "1px",  fontFamily: "Arial", }}><b>EULOGIO "AMANG" RODRIGUEZ</b></div>
+                            <div style={{ fontSize: "12px", letterSpacing: "1px",  fontFamily: "Arial", }}><b>INSTITUTE OF SCIENCE AND TECHNOLOGY </b></div>
+                            <div style={{ fontSize: "12px", letterSpacing: "1px",  fontFamily: "Arial",}}>Nagtahan, Sampaloc, Manila 1008</div>
+                            <div style={{fontSize: "10px",  fontFamily: "Arial",}}><b>STUDENT ADMISSION REGISTRATION AND RECORDS MANAGEMENT SERVICES</b></div>
                            
                             <div style={{ fontSize: "20px", fontWeight: "bold", letterSpacing: "1px" }}>
                               ECAT APPLICATION FORM
@@ -424,9 +424,9 @@ const ECATApplicationForm = () => {
                 <br />
 
                 <tr>
-                  <td colSpan={40} style={{ fontFamily: "Times New Roman", fontSize: "15px", paddingTop: "5px" }}>
-                    <span style={{ fontWeight: "bold", marginRight: "30px" }}>Name:</span>{" "}
-                    <span style={{ display: "inline-block", borderBottom: "1px solid black", width: "85%", paddingLeft: "10px" }}>
+                  <td colSpan={40} style={{ fontFamily: "Times New Roman", fontSize: "15px", paddingTop: "5px", }}>
+                    <span style={{ fontWeight: "bold", marginRight: "10px", marginLeft:"1px"  }}>Name:</span>{" "}
+                    <span style={{ display: "inline-block", borderBottom: "1px solid black", width: "88%", paddingLeft: "10px" }}>
                       {/* Full name goes here */}
                     </span>
                   </td>

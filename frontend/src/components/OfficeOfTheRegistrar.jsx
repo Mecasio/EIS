@@ -97,13 +97,12 @@ const AdmissionFormProcess = () => {
           <br />
           <Container>
             <div style={{
-              width: "8in", // matches table width assuming 8in for 40 columns
+              width: "8in",
               maxWidth: "100%",
-              margin: "0 auto", // center the content
+              margin: "0 auto",
               fontFamily: "Times New Roman",
               boxSizing: "border-box",
-
-              padding: "10px 0", // reduced horizontal padding
+              padding: "10px 0",
               fontSize: "12px",
               fontWeight: "bold",
               marginBottom: "20px"
@@ -125,27 +124,32 @@ const AdmissionFormProcess = () => {
                   />
                 </div>
 
-
-
-
                 <div style={{
                   flexGrow: 1,
                   textAlign: "center",
-
-                  fontFamily: "times new Roman",
+                  fontSize: "12px",
+                  fontFamily: "Arial",
                   lineHeight: 1.4,
                   paddingTop: 0,
                   paddingBottom: 0
                 }}>
-                  <div style={{ marginLeft: "-155px", fontFamily: "times new Roman", fontsize: "12px", }}>Republic of the Philippines</div>
-                  <div style={{ marginLeft: "-155px", fontFamily: "times new Roman", fontsize: "20px", }}><b>EULOGIO "AMANG" RODRIGUEZ </b></div>
-                  <div style={{ marginLeft: "-155px", fontFamily: "times new Roman", fontsize: "20px", }}><b>INSTITUTE OF SCIENCE AND TECHNOLOGY</b></div>
-                  <div style={{ marginLeft: "-155px", fontSize: "12px" }}>Nagtahan, Sampaloc, Manila 1008</div>
+                  <div style={{ marginLeft: "-155px", fontFamily: "Arial", fontSize: "12px", fontWeight: "normal" }}>
+                    Republic of the Philippines
+                  </div>
+                  <div style={{ marginLeft: "-155px", fontFamily: "Arial", letterSpacing: '2px' }}>
+                    <b>EULOGIO "AMANG" RODRIGUEZ </b>
+                  </div>
+                  <div style={{ marginLeft: "-155px", fontFamily: "Arial", letterSpacing: '2px' }}>
+                    <b>INSTITUTE OF SCIENCE AND TECHNOLOGY</b>
+                  </div>
+                  <div style={{ marginLeft: "-155px", fontFamily: "Arial", fontSize: "12px", fontWeight: "normal" }}>
+                    Nagtahan, Sampaloc, Manila 1008
+                  </div>
                   <br />
 
                   <div style={{
                     fontSize: "18px",
-                    fontFamily: "Times new roman",
+                    fontFamily: "Arial",
                     fontWeight: "bold",
                     marginBottom: "5px",
                     marginTop: "0",
@@ -155,11 +159,10 @@ const AdmissionFormProcess = () => {
                     OFFICE OF THE REGISTRAR<br />
                     APPLICATION FOR EARIST COLLEGE ADMISSION
                   </div>
-
-
                 </div>
               </div>
             </div>
+
           </Container>
 
 
@@ -2118,7 +2121,7 @@ const AdmissionFormProcess = () => {
 
                   }}
                 >
-                
+
 
                 </td>
                 <td
@@ -2193,7 +2196,7 @@ const AdmissionFormProcess = () => {
 
                   }}
                 >
-          
+
                 </td>
                 <td
                   colSpan={2}
@@ -2279,7 +2282,7 @@ const AdmissionFormProcess = () => {
 
                   }}
                 >
-               
+
 
                 </td>
                 <td

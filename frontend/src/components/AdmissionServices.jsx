@@ -119,68 +119,102 @@ const SearchStudentCOR = () => {
                         <div className="section">
 
                             <Container>
-                                <div style={{
-                                    width: "8in", // matches table width assuming 8in for 40 columns
-                                    maxWidth: "100%",
-                                    margin: "0 auto", // center the content
-                                    fontFamily: "Times New Roman",
-                                    boxSizing: "border-box",
+                             <div style={{
+  width: "8in", // matches table width assuming 8in for 40 columns
+  maxWidth: "100%",
+  margin: "0 auto", // center the content
+  fontFamily: "Times New Roman",
+  boxSizing: "border-box",
+  padding: "10px 0", // reduced horizontal padding
+}}>
 
-                                    padding: "10px 0", // reduced horizontal padding
+  <div style={{
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    flexWrap: "wrap"
+  }}>
+    {/* Logo */}
+    <div style={{ flexShrink: 0, marginRight: "20px" }}>
+      <img
+        src={EaristLogo}
+        alt="Earist Logo"
+        style={{
+          width: "120px",
+          height: "120px",
+          objectFit: "contain",
+          marginLeft: "10px",
+          marginTop: "-25px"
+        }}
+      />
+    </div>
 
-                                }}>
-                                    <div style={{
-                                        display: "flex",
-                                        alignItems: "center",
-                                        justifyContent: "center",
-                                        flexWrap: "wrap"
-                                    }}>
-                                        {/* Logo */}
-                                        <div style={{ flexShrink: 0, marginRight: "20px" }}>
-                                            <img
-                                                src={EaristLogo}
-                                                alt="Earist Logo"
-                                                style={{ width: "120px", height: "120px", objectFit: "contain", marginLeft: "10px", marginTop: "-25px" }}
-                                            />
-                                        </div>
+    <div style={{
+      flexGrow: 1,
+      textAlign: "center",
+      fontSize: "12px",
+      fontFamily: "Arial",
+      lineHeight: 1.4,
+      paddingTop: 0,
+      paddingBottom: 0,
+    }}>
+      <div style={{
+        marginLeft: "-145px",
+        fontSize: "12px",
+        fontFamily: "Arial",
+        letterSpacing: '1px',
+        fontWeight: "normal"
+      }}>
+        Republic of the Philippines
+      </div>
 
+      <div style={{
+        marginLeft: "-145px",
+        fontSize: "12px",
+        fontFamily: "Arial",
+        letterSpacing: '2px'
+      }}>
+        <b>EULOGIO "AMANG" RODRIGUEZ</b>
+      </div>
 
+      <div style={{
+        marginLeft: "-145px",
+        fontSize: "12px",
+        fontFamily: "Arial",
+        letterSpacing: '2px'
+      }}>
+        <b>INSTITUTE OF SCIENCE AND TECHNOLOGY</b>
+      </div>
 
-                                        <div style={{
-                                            flexGrow: 1,
-                                            textAlign: "center",
-                                            fontSize: "12px",
-                                            fontFamily: "Arial",
-                                            lineHeight: 1.4,
-                                            paddingTop: 0,
-                                            paddingBottom: 0,
-                                            
-                                        }}>
-                                            <div style={{ marginLeft: "-145px", fontsize: "12px", fontFamily: "Arial", letterSpacing: '2px'  }}>Republic of the Philippines</div>
-                                            <div style={{ marginLeft: "-145px", fontsize: "12px", fontFamily: "Arial", letterSpacing: '2px'  }}><b>EULOGIO "AMANG" RODRIGUEZ </b></div>
-                                            <div style={{ marginLeft: "-145px", fontsize: "12px", fontFamily: "Arial", letterSpacing: '2px'  }}><b>INSTITUTE OF SCIENCE AND TECHNOLOGY</b></div>
-                                            <div style={{ marginLeft: "-145px", fontsize: "12px", fontFamily: "Arial", letterSpacing: '2px' }}><b>Nagtahan, Sampaloc, Manila 1008</b></div>
-                                            <br />
+      <div style={{
+        marginLeft: "-145px",
+        fontSize: "12px",
+        fontFamily: "Arial",
+        letterSpacing: '1px',
+        fontWeight: "normal"
+      }}>
+        Nagtahan, Sampaloc, Manila 1008
+      </div>
 
-                                            <div style={{
-                                                fontSize: "18px",
-                                                fontFamily: "Arial",
-                                                fontWeight: "bold",
-                                                marginBottom: "5px",
-                                                marginTop: "0",
-                                                marginLeft: "-145px",
-                                                textAlign: "center",
-                                            }}>
-                                                ADMISSION SERVICES
-                                                <br/>
-                                                  HELP US SERVE YOU BETTER!
-                                               
-                                            </div>
+      <br />
 
-                                           
-                                        </div>
-                                    </div>
-                                </div>
+      <div style={{
+        fontSize: "18px",
+        fontFamily: "Arial",
+        fontWeight: "bold",
+        marginBottom: "5px",
+        marginTop: "0",
+        marginLeft: "-145px",
+        textAlign: "center",
+      }}>
+        ADMISSION SERVICES
+        <br />
+        HELP US SERVE YOU BETTER!
+      </div>
+    </div>
+  </div>
+</div>
+
                             </Container>
 
 
@@ -333,30 +367,22 @@ const SearchStudentCOR = () => {
                                     >
                                         <tbody>
                                             <tr>
-                                                <td colSpan="2" style={{ textAlign: "center" }}>
+                                                <td colSpan="2" style={{ textAlign: "left" }}>
                                                     <span style={{ fontWeight: "bold", fontSize: "12px", marginRight: "30px", }}>Others:</span>
+                                             
                                                     <span
                                                         style={{
                                                             display: "inline-block",
-                                                            borderBottom: "1px solid black",
-                                                            width: "50%",
-
-                                                            verticalAlign: "bottom"
-                                                        }}
-                                                    >
-
-                                                    </span>
-
-                                                    <span
-                                                        style={{
-                                                            display: "inline-block",
+                                                            marginLeft: "5px",
                                                             borderBottom: "1px solid black",
                                                             width: "98%",
                                                             height: "20px",
                                                             verticalAlign: "bottom",
                                                             marginTop: "5px"
                                                         }}
-                                                    ></span>
+                                                    >
+
+                                                    </span>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -1362,12 +1388,11 @@ const SearchStudentCOR = () => {
 
                                         </td>
                                     </tr>
-                                    <tr>
+                                      <tr>
                                         <td colSpan={40} style={{ textAlign: "left", fontFamily: "Times New Roman", fontSize: "12px", paddingTop: "5px" }}>
-                                            <span style={{ fontWeight: "bold", marginRight: "30px" }}>Suggestion on how we can further improve our services (optional):</span>{" "}
-                                            <br />
-                                            <br />
-                                            <span style={{ display: "inline-block", borderBottom: "1px solid black", width: "99%", paddingLeft: "10px" }}>
+                                            <span style={{ fontWeight: "bold", marginRight: "10px" }}>Suggestion on how we can further improve our services (optional):</span>{" "}
+
+                                            <span style={{ display: "inline-block", borderBottom: "1px solid black", width: "52%", paddingLeft: "10px" }}>
                                                 {/* Full name goes here */}
                                             </span>
                                         </td>
@@ -1376,7 +1401,7 @@ const SearchStudentCOR = () => {
 
                                     <tr>
                                         <td colSpan={40} style={{ textAlign: "left", fontFamily: "Times New Roman", fontSize: "12px", paddingTop: "5px" }}>
-                                            <span style={{ fontWeight: "bold", marginRight: "30px" }}>Email Address: (optional)</span>{" "}
+                                            <span style={{ fontWeight: "bold", marginRight: "10px" }}>Email Address: (optional)</span>{" "}
 
                                             <span style={{ display: "inline-block", borderBottom: "1px solid black", width: "50%", paddingLeft: "10px" }}>
                                                 {/* Full name goes here */}

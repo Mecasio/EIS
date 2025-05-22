@@ -243,30 +243,31 @@ app.get("/applicant-requirements", async (req, res) => {
 });
 
 // DELETE APPLICANT REQUIREMENTS (UPDATED!)
-app.delete("/applicant-requirements/:id", async (req, res) => {
+app.delete("/uploads/:id", async (req, res) => {
   const { id } = req.params;
 
   try {
-    const [results] = await db.query("SELECT file_path FROM applicant_requirements WHERE id = ?", [id]);
+    const [results] = await db.query("SELECT file_path FROM requirement_uploads WHERE upload_id = ?", [id]);
 
     if (results.length > 0 && results[0].file_path) {
       const filePath = path.join(__dirname, "uploads", results[0].file_path);
 
       fs.unlink(filePath, (err) => {
-        if (err) console.error("Error deleting file:", err);
+        if (err) {
+          console.error("Error deleting file:", err);
+        }
       });
     }
-
-    const [deleteResult] = await db.query("DELETE FROM applicant_requirements WHERE id = ?", [id]);
+    const [deleteResult] = await db.query("DELETE FROM requirement_uploads WHERE upload_id = ?", [id]);
 
     if (deleteResult.affectedRows === 0) {
-      return res.status(404).json({ error: "Requirement not found" });
+      return res.status(404).json({ error: "Upload not found" });
     }
 
-    res.json({ message: "Requirement deleted successfully" });
+    res.json({ message: "Upload deleted successfully" });
   } catch (err) {
     console.error("Database error:", err);
-    res.status(500).json({ error: "Failed to delete requirement" });
+    res.status(500).json({ error: "Failed to delete upload" });
   }
 });
 
